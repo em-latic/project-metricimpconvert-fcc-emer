@@ -135,7 +135,7 @@ function ConvertHandler() {
       default:
         //
     } 
-
+    result = Math.round(result * 100000)/100000;  //round to 5 decimal places
     return result; //.toFixed(5)
   };
   

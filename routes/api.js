@@ -16,15 +16,24 @@ module.exports = function (app) {
     const unit = convertHandler.getUnit(rawInput);    //console.log(`unit is: ${unit}`);
 
     if(numVal instanceof Error && unit instanceof Error) {
-      res.status(400).send("invalid number and unit");
+          console.log('Invalid Number & Unit')
+
+      res.send("invalid number and unit"); //.status(400)
+      return;
     }
     //validate 'numVal' ->  "invalid number" if  badly formatted -> [ const numInputRegex = /^(\d+(\.\d+)?)(\/\d+(\.\d+)?)?$/; ]
-    if(numVal instanceof Error) {  //!numInputRegex.test(numVal)
-      res.status(400).send("invalid number")
+    else if(numVal instanceof Error) {  //!numInputRegex.test(numVal)
+          console.log('Invalid Number')
+          
+      res.send("invalid number"); //.status(400)
+      return;
     }
     //validate 'unit' -> "invalid unit" if invalid -> [const unitInputRegex = /^(gal|L|lbs|kg|mi|km)$/;]
-    if(unit instanceof Error){
-      res.status(400).send("invalid unit");
+    else if(unit instanceof Error){
+          console.log('Invalid Unit')
+          
+      res.send("invalid unit"); //.status(400)
+      return;
     }
 
     const conversion = convertHandler.convert(numVal, unit);    //console.log(`xxx is: ${xxxx}`);
