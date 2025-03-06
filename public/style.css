@@ -1,5 +1,9 @@
+body {
+    background-color: rgb(218, 236, 149);
+}
+
 code {
-    background-color: whitesmoke;
+    background-color: rgb(164, 216, 119);
 }
 
 section, header {
